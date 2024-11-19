@@ -5,13 +5,14 @@ import {inject} from "@angular/core";
 export const adminGuard: CanActivateFn = (route, state) => {
   const authService: AuthServiceService = inject(AuthServiceService);
   const router = inject(Router);
+  const roles = JSON.parse(localStorage.getItem('roles') || '[]');
 
   if (authService.isAutenticado) {
-    if (authService.isAdmin) {
+    if (roles.includes('ADMIN')) {
       return true;
     } else {
       alert("Você não tem permissão")
-      router.navigate(['/dashboard']);
+      router.navigate(['/home']);
       return false;
     }
   } else {
