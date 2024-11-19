@@ -2,7 +2,6 @@ package com.security.jwt.controller;
 
 import com.security.jwt.model.User;
 import com.security.jwt.service.UserService;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

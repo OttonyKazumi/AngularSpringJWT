@@ -21,6 +21,7 @@ public class StartApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Criação do usuário admin
         createUserIfNotExists("admin", "123", "ROLE_ADMIN");
+        createUserIfNotExists("manager", "123", "ROLE_MANAGER");
 
         // Criação do usuário user
         createUserIfNotExists("user", "123", "ROLE_USER");

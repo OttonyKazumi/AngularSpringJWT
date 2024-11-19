@@ -21,4 +21,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .map(UserAuthenticated::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
     }
+
 }
