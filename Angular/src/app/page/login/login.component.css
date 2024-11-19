@@ -1,0 +1,45 @@
+.login-container {
+    width: 300px; /* Largura do contêiner de login */
+    margin: 30vh auto; /* Centraliza o contêiner na página */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #eeeeee; /* Cor de fundo branca para o contêiner */
+    box-shadow: 0 8px 10px rgba(22, 76, 255, 0.884); /* Sombra para o contêiner */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center;
+    }
+
+.form-group {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente no centro */
+    margin-bottom: 10px; /* Espaçamento entre os campos */
+  }
+  
+  .form-group label {
+    width: 120px; /* Define uma largura fixa para os rótulos */
+    text-align: right; /* Alinha o texto dos rótulos à direita */
+    margin-right: 10px; /* Espaçamento entre o rótulo e o campo de entrada */
+  }
+  
+  .form-group input {
+    flex: 1; /* O campo de entrada ocupa o espaço restante */
+    padding: 5px; /* Espaçamento interno do campo de entrada */
+  }
+  
+  button {
+    width: 100%; /* O botão ocupa a largura total */
+    padding: 10px; /* Define o espaçamento interno do botão */
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Estilo de cursor */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse sobre o botão */
+  }
+  
+  .error-message {
+    color: red; /* Cor da mensagem de erro */
+    margin-top: 10px; /* Espaçamento acima da mensagem de erro */
+  }
