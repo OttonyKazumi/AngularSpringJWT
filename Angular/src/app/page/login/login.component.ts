@@ -21,28 +21,16 @@ export class LoginComponent {
   errorMessage: string = '';
 
   constructor(private loginService: LoginService,
-              private router: Router ) {}
-
-  //
-  //return this.http.post<{token: string, roles: string[]}>(this.url + "/user/login", {username, password})
-  //.pipe(
-  //  tap(response => {
-  //        localStorage.setItem('token', response.token);
-  //          localStorage.setItem('roles', JSON.stringify(response.roles));
-  //            localStorage.setItem('authStatus', JSON.stringify(true));
-  //          })
-  //      );
-
+    private router: Router ) {}
   login(){
     this.loginService.login(this.username, this.password).subscribe({
-      next: () => {
-        // Redireciona para a página inicial após login bem-sucedido
-        this.router.navigate(['/home']);
-      },
-      error: () => {
-        // Exibe mensagem de erro em caso de falha
-        this.errorMessage = 'Usuário ou senha inválidos';
+    next:(response: any) => {
+      this.loginService.saveToken(response); // Armazena as credenciais
+      localStorage.setItem('authStatus', JSON.stringify(true));
+      this.router.navigate(['/profile']);
+      }, error: (err) => {
+        alert("Usuario e senha invalido")
       }
-    });
+    })
   }
 }

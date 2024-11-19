@@ -6,6 +6,7 @@ import {ProfileComponent} from "./page/profile/profile.component";
 import {UserComponent} from "./page/user/user.component";
 import {authGuard} from "./guard/auth.guard";
 import {adminGuard} from "./guard/admin.guard";
+import { RegisterComponent } from './page/register/register.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -14,4 +15,5 @@ export const routes: Routes = [
   {path: 'admin', component: AdmComponent, canActivate: [adminGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [authGuard]},
   {path: 'user', component: UserComponent, canActivate: [authGuard]},
+  {path: 'register', component: RegisterComponent},
 ];

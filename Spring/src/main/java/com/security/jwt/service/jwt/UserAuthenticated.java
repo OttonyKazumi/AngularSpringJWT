@@ -5,7 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserAuthenticated implements UserDetails {
 
@@ -18,7 +18,9 @@ public class UserAuthenticated implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "read");
+        return user.getRoles().stream()
+                .map(role -> (GrantedAuthority) () -> role) // Certifique-se de que `role.getName()` retorna `ROLE_USER`
+                .collect(Collectors.toList());
     }
 
     @Override

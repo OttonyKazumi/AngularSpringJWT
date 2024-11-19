@@ -1,0 +1,12 @@
+.registration-container {
+  width: 300px;
+  margin: auto;
+}
+
+.registration-container div {
+  margin-bottom: 15px;
+}
+
+.message {
+  color: green;
+}

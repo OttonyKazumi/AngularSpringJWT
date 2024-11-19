@@ -1,3 +1,4 @@
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 
@@ -9,7 +10,7 @@ export class AuthServiceService {
   isAutenticado: boolean = this.getAuthStatus();
   isAdmin: boolean = this.getAdminStatus();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) {
   }
 
   login(username: string, password: string) {
@@ -46,5 +47,15 @@ export class AuthServiceService {
 
   private getAdminStatus(): boolean {
     return JSON.parse(localStorage.getItem('adminStatus') || 'false');
+  }
+
+  getUserDetails() {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
+    });
+
+    // Faz a chamada ao backend para obter os detalhes do usuário
+    return this.http.get('http://localhost:8080/user/profile', { headers });
   }
 }
